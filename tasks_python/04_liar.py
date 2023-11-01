@@ -1,18 +1,30 @@
+"""
+API: wykonaj zadanie o nazwie liar. Jest to mechanizm, który mówi nie na temat w 1/3 przypadków. 
+Twoje zadanie polega na tym, aby do endpointa /task/ wysłać swoje pytanie w języku angielskim (dowolne, np "What is capital of Poland?") 
+w polu o nazwie 'question' (metoda POST, jako zwykłe pole formularza, NIE JSON). 
+System API odpowie na to pytanie (w polu 'answer') lub zacznie opowiadać o czymś zupełnie innym, zmieniając temat. 
+Twoim zadaniem jest napisanie systemu filtrującego (Guardrails), który określi (YES/NO), czy odpowiedź jest na temat. 
+Następnie swój werdykt zwróć do systemu sprawdzającego jako pojedyncze słowo YES/NO. 
+Jeśli pobierzesz treść zadania przez API bez wysyłania żadnych dodatkowych parametrów, otrzymasz komplet podpowiedzi. 
+Skąd wiedzieć, czy odpowiedź jest 'na temat'? 
+Jeśli Twoje pytanie dotyczyło stolicy Polski, a w odpowiedzi otrzymasz spis zabytków w Rzymie, to odpowiedź, którą należy wysłać do API to NO.
+"""
 import os
 import requests
 from langchain.llms import OpenAI
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import ChatPromptTemplate
 
+APIKEY = os.getenv("AI_DEVS_API_KEY")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 llm = OpenAI(openai_api_key=OPENAI_API_KEY)
 
 
-def token_function(zadanie):
+def get_token(task):
     # Define the API endpoint and the data to send
-    quest_url = f"https://zadania.aidevs.pl/token/{zadanie}"
-    data = {"apikey": "ac9a1ce6-abbf-48d1-a9ae-df7a80cb6488"}
+    quest_url = f"https://zadania.aidevs.pl/token/{task}"
+    data = {"apikey": APIKEY}
 
     # Send the POST request
     quest_response = requests.post(quest_url, json=data)
@@ -28,7 +40,7 @@ def token_function(zadanie):
     return token
 
 
-def post_function(token):
+def get_task(token):
     # Define the URL
     token_url = f"https://zadania.aidevs.pl/task/{token}"
     # Send a GET request
@@ -44,7 +56,7 @@ def post_function(token):
     return token_response
 
 
-def task_function(token, question):
+def get_answer(token, question):
     # Construct the new URL using the received token
     new_url = f"https://zadania.aidevs.pl/task/{token}"
 
@@ -83,7 +95,7 @@ def ask_gpt(response, question):
     return answer
 
 
-def answer_task_function(token, answer):
+def answer_submission(token, answer):
     # Construct the new URL using the received token
     new_url = f"https://zadania.aidevs.pl/answer/{token}"
 
@@ -101,9 +113,9 @@ def answer_task_function(token, answer):
 
 
 if __name__ == "__main__":
-    token = token_function("liar")
-    post_function(token)
+    token = get_token("liar")
+    get_task(token)
     question = {'question': "What is capital of Poland?"}
-    response = task_function(token, question)
+    response = get_answer(token, question)
     answer = ask_gpt(response, question).upper()
-    answer_task_function(token, answer)
+    answer_submission(token, answer)
