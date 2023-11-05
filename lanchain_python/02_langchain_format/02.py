@@ -1,33 +1,39 @@
-
 from langchain.llms import OpenAI
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import ChatPromptTemplate
+from system_context import context
 from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
-import os
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
-#print(OPENAI_API_KEY)
-llm = OpenAI(openai_api_key=OPENAI_API_KEY)
-chat_model = ChatOpenAI(openai_api_key=OPENAI_API_KEY)
-sentence = "The Vercel AI SDK is an open-source library designed to help developers build conversational, streaming, and chat user interfaces in JavaScript and TypeScript. The SDK supports React/Next.js, Svelte/SvelteKit, with support for Nuxt/Vue coming soon. To install the SDK, enter the following command in your terminal: npm install ai"
 
+# Define a system template providing instructions to the model
 system_template = """
-As a {role} who answers the questions ultra-concisely using CONTEXT below 
-and nothing more and truthfully says "don't know" when the CONTEXT is not enough to give an answer.
+As a {role} who answers questions ultra-concisely using CONTEXT below 
+and truthfully says "don't know" when the CONTEXT is not enough to give an answer.
 
 context###{context}###
 """
+
+# Define a human template for the chat interaction
 human_template = "{text}"
 
-chat_prompt = ChatPromptTemplate.from_messages([("system", system_template), 
-                                                ("human", human_template),])
+# Create a chat prompt template from system and human messages
+chat_prompt = ChatPromptTemplate.from_messages([
+    ("system", system_template),  # System-level instructions with placeholders
+    ("human", human_template),  # Represents the user's input
+])
 
-formatted_chat_prompt = chat_prompt.format_messages(context=sentence,
-                                                    role="Senior sentence Programmer",
-                                                    text="What is Vercel AI?")
+# Format the chat prompt with specific values for 'context' and 'role'
+formatted_chat_prompt = chat_prompt.format_messages(
+    context=context,  # Replace the 'context' placeholder with actual context
+    role="Senior sentence Programmer",  # Define the role for the model
+    text="What is Vercel AI?"  # User's input text
+)
 
+# Create an instance of the ChatOpenAI model
 chat = ChatOpenAI()
+
+# Use the model to predict messages based on the formatted chat prompt
 content = chat.predict_messages(formatted_chat_prompt)
 
 print(content)

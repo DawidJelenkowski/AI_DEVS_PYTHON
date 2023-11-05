@@ -5,8 +5,14 @@ from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
 
+# Initialize a ChatOpenAI object to interact with the OpenAI language model.
 chat = ChatOpenAI()
+
+# Initialize a memory buffer for the conversation that retains the last 'k' messages.
+# Here, 'k=1' means the model will only remember the last message.
 memory = ConversationBufferWindowMemory(k=1)
+
+# Set up a conversation chain that uses the chat language model and the defined memory.
 chain = ConversationChain(llm=chat, memory=memory)
 
 response1 = chain.invoke(input="Hey there! I'm Adam")

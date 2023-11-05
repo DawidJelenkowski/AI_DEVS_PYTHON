@@ -17,14 +17,19 @@ A user will pass in a category, and you should generate 5 objects in that catego
 ONLY return a comma separated list, and nothing more.
 """
 
+# Define a human template for the chat interaction
 human_template = "{text}"
 
+# Create a chat prompt template from system and human messages
 chat_prompt = ChatPromptTemplate.from_messages([
-    ("system", template),
-    ("human", human_template),
+    ("system", template),   # Provides system-level instructions
+    ("human", human_template),  # Represents the user's input
 ])
 
+# Combine the chat prompt template with the Chat OpenAI model using the '|' operator
 chain = chat_prompt | ChatOpenAI()
+
+# Invoke the model with the user's input data (in this case, "colors")
 output = chain.invoke({"text": "colors"})
 
 print(output)
