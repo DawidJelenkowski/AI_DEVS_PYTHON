@@ -7,7 +7,7 @@ load_dotenv(find_dotenv())
 
 loader = TextLoader(r"lanchain_python/09_context/memory.md")
 data = loader.load()
-data = data[0]
+data = data[0].page_content
 chat = ChatOpenAI()
 
 # Create a chat prompt template from system and human messages
