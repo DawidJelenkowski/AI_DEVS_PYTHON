@@ -1,0 +1,60 @@
+2023-11-13 22:01:53,513 - __main__ - INFO - Starting document processing
+2023-11-13 22:01:53,764 - __main__ - INFO - Initializing Document Processor
+2023-11-13 22:01:53,764 - __main__ - INFO - Loading documents from directory: lanchain_python/11_docs/
+2023-11-13 22:01:54,855 - unstructured - INFO - Reading document from string ...
+2023-11-13 22:01:54,856 - unstructured - INFO - Reading document ...
+2023-11-13 22:01:55,271 - __main__ - INFO - Loaded 22 documents
+2023-11-13 22:01:55,272 - __main__ - INFO - Describing documents with concurrency
+2023-11-13 22:01:55,993 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:01:55,997 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:01:56,707 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:01:56,707 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:01:57,321 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:01:57,526 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:01:58,140 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:01:58,550 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:01:59,881 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:02:00,289 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:02:00,594 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:02:00,598 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:02:00,899 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:02:01,103 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:02:01,212 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:02:01,612 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:02:01,815 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:02:02,021 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:02:02,069 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:02:02,715 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:02:03,547 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:02:59,709 - __main__ - INFO - Starting document processing
+2023-11-13 22:02:59,969 - __main__ - INFO - Initializing Document Processor
+2023-11-13 22:02:59,969 - __main__ - INFO - Loading documents from directory: lanchain_python/11_docs/
+2023-11-13 22:03:01,064 - unstructured - INFO - Reading document from string ...
+2023-11-13 22:03:01,064 - unstructured - INFO - Reading document ...
+2023-11-13 22:03:01,479 - __main__ - INFO - Loaded 22 documents
+2023-11-13 22:03:01,479 - __main__ - INFO - Describing documents with concurrency
+2023-11-13 22:03:02,121 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:02,225 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:02,226 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:02,331 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:02,738 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:02,943 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:02,995 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:03,247 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:03,867 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:03,867 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:04,582 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:04,787 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:05,401 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:05,516 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:06,016 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:06,836 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:07,555 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:07,961 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:08,578 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:10,526 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:11,039 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:14,625 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2023-11-13 22:03:14,835 - __main__ - INFO - Document description completed
+2023-11-13 22:03:14,835 - __main__ - INFO - Saving results to lanchain_python/11_docs/output.json
+2023-11-13 22:03:14,843 - __main__ - INFO - Results successfully saved
