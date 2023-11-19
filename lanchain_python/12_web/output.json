@@ -1,0 +1,18 @@
+{
+  "pageContent": "![overment-photo]($1)\n\nThis is a place where I share everything I know. I've create this place primarily for myself. At the same time, I thought you might find it all, equally valuable to you.\n\nPlease keep in mind, that this project won't be finished. What's most important, many things will change over time, because **what's true for me today, tomorrow probably won't be** \u2014 this is my strategy for a constantly changing world.\n\nThe most important topics: [#](#the-most-important-topics)\n----------------------------------------------------------\n\n* My [Process]($2) which allows me to move in the [Direction]($3) I have set for myself, based on my [Values]($4) and [Knowing thyself](./Core/Knowing thyself.html)\n* How I learn based on my [Learning System](./Core/Learning System.html)\n* Everything I know about [Mental Models](./Mental Models/Mental Models.html)\n* My thoughts about [Books]($5) I read\n* A list and my thoughts about [Apps]($6)\n* Thoguhts about my [Hardware]($7)\n* Perspective and ideas about [Automation]($8)s\n* Notes on Programming, Design, Marketing and Business.\n* Notes about my [Process]($2)\n* My all free and paid publications\n\nWhere you can find me? [#](#where-you-can-find-me)\n--------------------------------------------------\n\nI like to talk to people, so if there is anything I need to know or you'd like to share with me, don't think twice. If I won't reply, please do not consider it personal, but still \u2014 I'll do my best.\n\nYou can find me on [Instagram]($9), [YouTube]($10), [Medium]($11) and [Twitter]($12)\n\nFeel free to contact me \u2014 adam a^t. [overment.com]($13)\n\n",
+  "metadata": {
+    "https://space.overment.com/overment/overment.png": "$1",
+    "./Core/Process.html": "$2",
+    "./Core/Direction.html": "$3",
+    "./Core/Values.html": "$4",
+    "./Books/Books.html": "$5",
+    "./Tools/Apps.html": "$6",
+    "./Tools/Hardware.html": "$7",
+    "./Tools/Automation.html": "$8",
+    "https://www.instagram.com/_overment/": "$9",
+    "https://www.youtube.com/overment": "$10",
+    "https://medium.com/@overment": "$11",
+    "https://twitter.com/_overment": "$12",
+    "http://overment.com": "$13"
+  }
+}
