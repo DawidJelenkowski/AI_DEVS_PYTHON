@@ -1,3 +1,8 @@
+"""
+Napisz wpis na bloga (w języku polskim) na temat przyrządzania pizzy Margherity. Zadanie w API nazywa się ”blogger”.
+Jako wejście otrzymasz spis 4 rozdziałów, które muszą pojawić się we wpisie.
+Jako odpowiedź musisz zwrócić tablicę (w formacie JSON) złożoną z 4 pól reprezentujących te cztery rozdziały, np.: {"answer":["tekst 1","tekst 2","tekst 3","tekst 4"]}
+"""
 from open_ai_connector.const import OpenAiModels
 from open_ai_connector.open_ai_connector import OpenAIConnector
 from solver.prompt_builder import prepare_prompt

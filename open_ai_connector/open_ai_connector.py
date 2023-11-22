@@ -1,41 +1,35 @@
+from open_ai_connector.const import OpenAiModels
+from dotenv import load_dotenv, find_dotenv
 import json
 import os
 from typing import List, BinaryIO, Tuple
 
-import openai
-from dotenv import load_dotenv
-
-from const import OpenAiModels
+from openai import OpenAI
 
 
 class OpenAIConnector:
-    # encapsulation
     _instance = None
 
-    # creates a singletone class
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
             cls._instance = super(OpenAIConnector, cls).__new__(
                 cls, *args, **kwargs)
-            cls._instance.set_api_key()
+            cls._instance.initialize_client()
         return cls._instance
 
-    def set_api_key(self) -> None:
-        if os.getenv("OPENAI_API_KEY") is None:
-            load_dotenv()
-            openai.api_key = os.getenv("OPENAI_API_KEY")
-        else:
-            openai.api_key = os.getenv("OPENAI_API_KEY")
+    def initialize_client(self) -> None:
+        load_dotenv(find_dotenv())
+        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
     def get_models(self) -> List[str]:
-        models = openai.Model.list()
-        models_name = [model["id"] for model in models["data"]]
+        models_page = self.client.models.list()
+        models_name = [model.id for model in models_page.data]
         return models_name
 
     def moderate_prompt(self, sentences: List[str]) -> List[str]:
         verdicts = []
         for sentence in sentences:
-            response = openai.Moderation.create(input=sentence)
+            response = self.client.moderations.create(input=sentence)
             verdict = response.results[0].flagged
             verdicts.append(verdict)
         return verdicts
@@ -48,13 +42,11 @@ class OpenAIConnector:
         variations: int = 1,
         temperature: float = 0.5,
     ) -> str:
-        response = openai.ChatCompletion.create(
-            model=model,
-            temperature=temperature,
-            max_tokens=max_token,
-            n=variations,
-            messages=messages,
-        )
+        response = self.client.chat.completions.create(model=model,
+                                                       temperature=temperature,
+                                                       max_tokens=max_token,
+                                                       n=variations,
+                                                       messages=messages)
         return response.choices[0].message.content
 
     def function_calls(
@@ -67,15 +59,13 @@ class OpenAIConnector:
         variations: int = 1,
         temperature: float = 0.5,
     ) -> Tuple[str, dict]:
-        response = openai.ChatCompletion.create(
-            model=model,
-            temperature=temperature,
-            max_tokens=max_token,
-            n=variations,
-            messages=messages,
-            functions=functions,
-            function_call=function_call,
-        )
+        response = self.client.chat.completions.create(model=model,
+                                                       temperature=temperature,
+                                                       max_tokens=max_token,
+                                                       n=variations,
+                                                       messages=messages,
+                                                       functions=functions,
+                                                       function_call=function_call)
         # === Return in structure [name_of_the_function, arguments]
         reply_content = response.choices[0].message.to_dict()
         return (
@@ -84,16 +74,41 @@ class OpenAIConnector:
         )
 
     def generate_embedding(self, text_to_embbeded: str) -> str:
-        embedding = openai.Embedding.create(
-            input=text_to_embbeded, model=OpenAiModels.text_embedding_ada_002.value
-        )["data"][0]["embedding"]
+        response = self.client.embeddings.create(
+            input=text_to_embbeded, model=OpenAiModels.text_embedding_ada_002.value)
+        embedding = response.data[0].embedding
         return embedding
 
     def use_whisperer(self, audio_file: BinaryIO) -> str:
-        transcript = openai.Audio.transcribe(
-            model=OpenAiModels.whisper_1.value, file=audio_file, response_format="text"
-        )
+        transcript = self.client.audio.transcribe(
+            model=OpenAiModels.whisper_1.value, file=audio_file, response_format="text")
         return transcript
+
+    def use_vision(self, text, url, assistant_knowledge):
+        response = (
+            self.client.chat.completions.create(model=OpenAiModels.gpt4_vision.value,
+                                                messages=[
+                                                    {
+                                                        "role": "user",
+                                                        "content": [
+                                                            {"type": "text",
+                                                             "text": text},
+                                                            {
+                                                                "type": "image_url",
+                                                                "image_url": {
+                                                                    "url": url,
+                                                                },
+                                                            },
+                                                        ],
+                                                    },
+                                                    {"role": "assistant",
+                                                     "content": assistant_knowledge},
+                                                ],
+                                                max_tokens=300),
+        )
+
+        print(response[0]["choices"][0]["message"]["content"])
+        return response[0]["choices"][0]["message"]["content"]
 
 
 if __name__ == "__main__":
