@@ -67,10 +67,10 @@ class OpenAIConnector:
                                                        functions=functions,
                                                        function_call=function_call)
         # === Return in structure [name_of_the_function, arguments]
-        reply_content = response.choices[0].message.to_dict()
+        reply_content = response.choices[0].message.function_call
         return (
-            reply_content["function_call"]["name"],
-            json.loads(reply_content["function_call"]["arguments"]),
+            reply_content.name,
+            json.loads(reply_content.arguments),
         )
 
     def generate_embedding(self, text_to_embbeded: str) -> str:
@@ -80,7 +80,7 @@ class OpenAIConnector:
         return embedding
 
     def use_whisperer(self, audio_file: BinaryIO) -> str:
-        transcript = self.client.audio.transcribe(
+        transcript = self.client.audio.transcriptions.create(
             model=OpenAiModels.whisper_1.value, file=audio_file, response_format="text")
         return transcript
 

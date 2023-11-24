@@ -6,3 +6,5 @@
 4. liar.py
 5. inprompt.py
 6. embeding.py
+7. whisper.py
+8. functions.py
