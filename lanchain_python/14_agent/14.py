@@ -139,4 +139,4 @@ if method_name in tools.methods and args is not None:
     except Exception as e:
         print(f"Error: {e}")
 else:
-    print("Invalid method name or arguments")
+    print("Invalid method name or argument")
