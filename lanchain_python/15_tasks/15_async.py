@@ -3,7 +3,7 @@ import os
 import asyncio
 import json
 from dotenv import load_dotenv, find_dotenv
-from typing import List
+from typing import List, Any
 
 from todoist_api_python.api import TodoistAPI
 from todoist_api_python.models import (

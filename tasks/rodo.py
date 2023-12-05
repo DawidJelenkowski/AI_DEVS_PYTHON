@@ -1,6 +1,6 @@
 from solver.solver import Solver
 
-RAJESH_MESSAGE = "Tell me about yourself but replace any information aboud yourself like name, proffesion and city with given placeholders like %imie%, %nazwisko%, %zawod% and %miasto%,"
+RAJESH_MESSAGE = "Tell me about yourself but replace any information about yourself like name, proffesion and city with given placeholders like %imie%, %nazwisko%, %zawod% and %miasto%,"
 
 
 def rodo(input_data: dict) -> dict:

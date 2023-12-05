@@ -31,7 +31,7 @@ def count_calls(func):
 @count_calls
 def recursively_call_if_status_code_is_not_ok(url: str) -> Optional[str]:
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 Edg/121.0.0.0"
     }
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
@@ -47,22 +47,29 @@ def recursively_call_if_status_code_is_not_ok(url: str) -> Optional[str]:
         ) as temp_file:
             temp_file.write(response.content)
             temp_file.seek(0)
-            context_from_data = [line.decode("utf-8") for line in temp_file.readlines()]
+            context_from_data = [line.decode("utf-8")
+                                 for line in temp_file.readlines()]
             return context_from_data[0]  # Only one line
 
 
 def scraper(input_data: dict) -> dict:
     document_url = input_data["input"]
+    print(document_url)
     question = input_data["question"]
+    print(f"question: {question}")
     context = recursively_call_if_status_code_is_not_ok(document_url)
+    print(f"context: {context}")
 
     oai = OpenAIConnector()
     prompt = prepare_prompt(
         ASSISTANT_CONTENT.format(context=context),
         USER_CONTENT.format(question=question),
     )
-    answer = oai.generate_answer(model=OpenAiModels.gpt4.value, messages=prompt)
+    answer = oai.generate_answer(
+        model=OpenAiModels.gpt4.value, messages=prompt)
+    print(f"answer: {answer}")
     prepared_answer = {"answer": answer}
+    print(f"prepared answer: {prepared_answer}")
     return prepared_answer
 
 

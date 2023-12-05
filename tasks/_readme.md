@@ -8,3 +8,5 @@
 6. embeding.py
 7. whisper.py
 8. functions.py
+9. rodo.py
+10. scraper.py
