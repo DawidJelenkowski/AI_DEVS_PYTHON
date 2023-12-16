@@ -10,3 +10,5 @@
 8. functions.py
 9. rodo.py
 10. scraper.py
+11. whoami.py
+12. search.py

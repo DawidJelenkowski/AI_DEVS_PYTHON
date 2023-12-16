@@ -47,7 +47,7 @@ def temp_qdrant_handler(question):
                 )
                 chunks.append(tmp)
             print(chunks[0:3])
-        return chunks[0:301]
+        return chunks[0:401]
 
     # get_chunks()
 
@@ -80,7 +80,7 @@ def search(input_data: dict) -> dict:
 
 def get_newsletter(url: str) -> None:
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 Edg/121.0.0.0"
     }
     response = requests.get(url, headers=headers)
     with open("newsletter.json", mode="w", encoding="utf-8") as file:
