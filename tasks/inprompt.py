@@ -19,7 +19,6 @@ from tasks.blogger import prepare_prompt
 ASSISTANT_CONTENT = "Based on this information: {context}, answer to the question"
 USER_CONTENT = "Question: {question}"
 
-
 def inprompt(input_data: dict) -> dict:
     input_list = input_data["input"]
     question = input_data["question"]

@@ -15,7 +15,7 @@ URL_FOR_DATA = "https://zadania.aidevs.pl/data/people.json"
 
 def get_data(url: str) -> None:
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 Edg/121.0.0.0"
     }
     response = requests.get(url, headers=headers)
     with open("people.json", mode="w", encoding="utf-8") as file:
@@ -38,7 +38,7 @@ def temp_qdrant_handler(question):
     #     size=1536,  # 768 for instructor-xl, 1536 for OpenAI
     #     distance=qdrant_client.http.models.Distance.COSINE
     # )
-    #
+    
     # client.recreate_collection(
     #     collection_name=os.getenv("QDRANT_COLLECTION"),
     #     vectors_config=collection_config
@@ -76,11 +76,11 @@ def temp_qdrant_handler(question):
     #         for element in raw_text:
     #             person = person_info(element)
     #             chunks.append(person)
-    #
+    
     #     return chunks
-    #
+    
     # # get_chunks()
-    #
+    
     # texts = get_chunks()
 
     # vectorstore.add_texts(texts)
