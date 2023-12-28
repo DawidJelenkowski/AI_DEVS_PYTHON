@@ -7,7 +7,7 @@ USER_CONTENT = ""
 
 def gnome(input_data: dict) -> dict:
     url = input_data["url"]
-    assistant_knowledge = 'Answer ultra briefly, return only color in Polish, if there is no hat on image return string "error". '
+    assistant_knowledge = 'Answer ultra briefly, return only color in Polish, if there is no hat on image return string "error".'
     oai = OpenAIConnector()
     answer = oai.use_vision(
         text="What is the color of gnome hat",

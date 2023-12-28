@@ -107,8 +107,8 @@ class OpenAIConnector:
                                                 max_tokens=300),
         )
 
-        print(response[0]["choices"][0]["message"]["content"])
-        return response[0]["choices"][0]["message"]["content"]
+        print(response[0].choices[0].message.content)
+        return response[0].choices[0].message.content
 
 
 if __name__ == "__main__":

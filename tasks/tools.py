@@ -15,10 +15,10 @@ USER: 'Przypomnij mi, że mam kupić mleko'
 AI: {"tool":"ToDo","desc":"Kup mleko" }
 
 USER: 'Jutro mam spotkanie z Marianem'
-AI: {"tool":"Calendar","desc":"Spotkanie z Marianem","date":"2023-11-16"}'
+AI: {"tool":"Calendar","desc":"Spotkanie z Marianem","date":"2023-12-27"}'
 
 ### 
-Today is 2023-11-15
+Today is 2023-12-26
 
 """
 USER_CONTENT = "{information}"

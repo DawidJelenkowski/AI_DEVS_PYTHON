@@ -92,6 +92,5 @@ def knowledge(input_data: dict) -> dict:
 
 
 if __name__ == "__main__":
-    # TODO: Refactor and use function call
     sol = Solver("knowledge")
     sol.solve(knowledge)
