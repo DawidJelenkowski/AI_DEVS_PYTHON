@@ -1,4 +1,3 @@
-from open_ai_connector.const import OpenAiModels
 from dotenv import load_dotenv, find_dotenv
 import json
 import os
@@ -75,18 +74,18 @@ class OpenAIConnector:
 
     def generate_embedding(self, text_to_embbeded: str) -> str:
         response = self.client.embeddings.create(
-            input=text_to_embbeded, model=OpenAiModels.text_embedding_ada_002.value)
+            input=text_to_embbeded, model="text-embedding-ada-002")
         embedding = response.data[0].embedding
         return embedding
 
     def use_whisperer(self, audio_file: BinaryIO) -> str:
         transcript = self.client.audio.transcriptions.create(
-            model=OpenAiModels.whisper_1.value, file=audio_file, response_format="text")
+            model="whisper-1", file=audio_file, response_format="text")
         return transcript
 
     def use_vision(self, text, url, assistant_knowledge):
         response = (
-            self.client.chat.completions.create(model=OpenAiModels.gpt4_vision.value,
+            self.client.chat.completions.create(model="gpt-4-vision-preview",
                                                 messages=[
                                                     {
                                                         "role": "user",

@@ -2,7 +2,7 @@
 
 1. helloapi.py
 2. moderation.py
-3. logger.py
+3. blogger.py
 4. liar.py
 5. inprompt.py
 6. embeding.py
@@ -16,7 +16,7 @@
 14. knowledge.py
 15. tools.py
 16. gnome.py
-17. ownapi.py # unsolved, requires API knowledge
+17. ownapi.py # unsolved, requires API kn
 18. ownapi.py # ownapipro - unsolved, requires API knowledge
 19. meme.py
 20. optimaldb.py # unsolved
