@@ -24,7 +24,7 @@ email-validator==2.1.0.post1
 emoji==2.8.0
 executing==2.0.1
 faiss-cpu==1.7.4
-fastapi==0.106.0
+fastapi==0.109.1
 filetype==1.2.0
 frozenlist==1.4.0
 greenlet==3.0.0
