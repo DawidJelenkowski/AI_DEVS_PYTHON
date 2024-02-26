@@ -51,7 +51,7 @@ jsonpointer==2.4
 jupyter_client==8.6.0
 jupyter_core==5.5.0
 langchain==0.0.334
-langchain-experimental==0.0.38
+langchain-experimental==0.0.52
 langdetect==1.0.9
 langsmith==0.0.63
 lxml==4.9.3
