@@ -1,1 +1,1 @@
-![test](https://drive.proton.me/urls/FYTVJ2GKB0#tehbWN8NtsZH)
+[ai_devs2_eng.pdf](https://github.com/user-attachments/files/16120422/ai_devs2_eng.pdf)
