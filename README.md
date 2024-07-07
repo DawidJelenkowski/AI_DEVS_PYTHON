@@ -1,1 +1,1 @@
-!(ai_devs2_eng.pdf)
+![](https://drive.proton.me/urls/6TAKS1AFNR#ilE7qZW2yCb8)
